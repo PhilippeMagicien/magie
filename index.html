@@ -3,411 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Philippe — Magicien & Mentaliste</title>
+    <meta name="description" content="Philippe, magicien et mentaliste à Montreux. Magie rapprochée, mentalisme et spectacles privés.">
+    
+    <!-- Vintage & Serif Typography matching the poster -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <meta
-        name="description"
-        content="Philippe, magicien et mentaliste à Montreux. Magie rapprochée, mentalisme et spectacles privés pour mariages, soirées et événements."
-    >
+    <style>
+        /* =========================================
+           VINTAGE POSTER PALETTE & STYLES
+        ========================================= */
+        :root {
+            --sky-blue: #3C9BD6;
+            --poster-yellow: #FFD200;
+            --poster-yellow-dark: #E5B800;
+            --crimson: #A81D24;
+            --sand-bg: #EFE5CD;
+            --paper-card: #FAF6EB;
+            --ink-black: #1A1817;
+            --text-muted: #5C5549;
+            --border-ink: #2C2621;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
-        rel="stylesheet"
-    >
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--sky-blue);
+            background-image: radial-gradient(circle at 50% 0%, #5CB4EC 0%, var(--sky-blue) 70%);
+            color: var(--ink-black);
+            font-family: 'Montserrat', sans-serif;
+            padding: 20px 10px;
+            min-height: 100vh;
+        }
+
+        /* =========================================
+           MAIN CARD CONTAINER
+        ========================================= */
+        .card {
+            position: relative;
+            width: 100%;
+            max-width: 580px;
+            margin: 0 auto;
+            background: var(--sand-bg);
+            border: 3px solid var(--border-ink);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        /* Yellow Ribbon Header */
+        .banner-header {
+            background-color: var(--poster-yellow);
+            border-bottom: 3px solid var(--border-ink);
+            padding: 18px 15px;
+            text-align: center;
+        }
+
+        .banner-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--ink-black);
+            line-height: 1.1;
+        }
+
+        .banner-header p.subtitle {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--crimson);
+            margin-top: 4px;
+        }
+
+        /* =========================================
+           POSTER & DESCRIPTION
+        ========================================= */
+        .poster-section {
+            padding: 30px 20px 20px;
+            text-align: center;
+        }
+
+        .poster-frame {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto 25px;
+            border: 4px solid var(--border-ink);
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+            background: var(--ink-black);
+            overflow: hidden;
+        }
+
+        .poster-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .description {
+            padding: 0 10px 25px;
+            text-align: center;
+        }
+
+        .description h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-style: italic;
+            font-weight: 700;
+            color: var(--crimson);
+            line-height: 1.25;
+            margin-bottom: 12px;
+        }
+
+        .description p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 460px;
+            margin: 0 auto 15px;
+        }
+
+        /* =========================================
+           CONTACT & BUTTONS
+        ========================================= */
+        .contact-box {
+            background: var(--paper-card);
+            border-top: 3px solid var(--border-ink);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--ink-black);
+            margin-bottom: 5px;
+        }
+
+        .contact-box p.eyebrow {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--crimson);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 360px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 480px) {
+            .buttons {
+                flex-direction: row;
+            }
+        }
+
+        .btn-call, .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 2px solid var(--border-ink);
+        }
+
+        .btn-call {
+            background-color: var(--poster-yellow);
+            color: var(--ink-black);
+            flex: 1;
+        }
+
+        .btn-call:hover {
+            background-color: var(--poster-yellow-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: #ffffff;
+            border-color: #1a8f44;
+            flex: 1;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #20ba5a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .location {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-top: 20px;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            background: var(--ink-black);
+            color: var(--sand-bg);
+            text-align: center;
+            padding: 20px;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        footer strong {
+            color: var(--poster-yellow);
+            font-family: 'Playfair Display', serif;
+            font-size: 15px;
+            display: block;
+            margin-bottom: 4px;
+        }
+    </style>
 </head>
-
 <body>
-
-<div class="stars"></div>
 
 <main class="card">
 
-    <!-- HERO -->
+    <!-- HEADER BANNER -->
+    <header class="banner-header">
+        <h1>Philippe</h1>
+        <p class="subtitle">Magicien & Mentaliste</p>
+    </header>
 
-    <section class="hero">
-
-        <div class="moon">
-            ✦
+    <!-- POSTER DISPLAY -->
+    <section class="poster-section">
+        <div class="poster-frame">
+            <img src="poster.jpg" alt="Comment je suis devenu Magicien - Spectacle du Théâtre Magique par Philippe">
         </div>
-
-        <div class="hero-image">
-            <img
-                src="photo.jpg"
-                alt="Philippe, magicien"
-            >
-        </div>
-
-        <p class="eyebrow">
-            MAGICIEN · MENTALISTE
-        </p>
-
-        <h1>
-            Philippe
-        </h1>
-
-        <p class="hero-title">
-            L'impossible,<br>
-            à quelques centimètres de vous.
-        </p>
-
-        <p class="intro">
-            Une magie élégante, intime et surprenante
-            pour créer des souvenirs que vos invités
-            n'oublieront pas.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a
-                href="tel:+41791234567"
-                class="gold-button"
-            >
-                Réserver une prestation
-            </a>
-
-            <a
-                href="https://wa.me/41791234567"
-                class="outline-button"
-            >
-                WhatsApp
-            </a>
-
-        </div>
-
-        <div class="scroll">
-            <span>↓</span>
-            DÉCOUVRIR
-        </div>
-
     </section>
 
-
-    <!-- INTRO -->
-
-    <section class="intro-section">
-
-        <p class="small-title">
-            UNE EXPÉRIENCE UNIQUE
-        </p>
-
-        <h2>
-            La magie ne se regarde pas.<br>
-            <em>Elle se vit.</em>
-        </h2>
-
+    <!-- DESCRIPTION -->
+    <section class="description">
+        <h2>L'impossible, à quelques centimètres de vous</h2>
         <p>
-            Je propose une magie moderne et élégante,
-            pensée pour surprendre vos invités et créer
-            de véritables moments de connexion.
+            Une magie élégante, intime et surprenante pour émerveiller vos invités et créer de véritables moments d'émerveillement lors de vos événements.
         </p>
-
-    </section>
-
-
-    <!-- SERVICES -->
-
-    <section class="services">
-
-        <p class="small-title">
-            LES EXPÉRIENCES
-        </p>
-
-        <h2>
-            Choisissez votre magie
-        </h2>
-
-
-        <article class="service">
-
-            <div class="number">
-                01
-            </div>
-
-            <div class="service-content">
-
-                <div class="playing-card">
-                    ♠
-                </div>
-
-                <h3>
-                    Magie rapprochée
-                </h3>
-
-                <p>
-                    Des cartes, des objets et des coïncidences
-                    impossibles qui se produisent directement
-                    sous les yeux de vos invités.
-                </p>
-
-                <div class="tags">
-                    <span>Mariages</span>
-                    <span>Soirées</span>
-                    <span>Événements</span>
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <article class="service">
-
-            <div class="number">
-                02
-            </div>
-
-            <div class="service-content">
-
-                <div class="playing-card red">
-                    ♥
-                </div>
-
-                <h3>
-                    Mentalisme
-                </h3>
-
-                <p>
-                    Prédictions, intuition et lecture de pensée.
-                    Une expérience troublante où vos pensées
-                    deviennent le véritable spectacle.
-                </p>
-
-                <div class="tags">
-                    <span>Entreprises</span>
-                    <span>Dîners</span>
-                    <span>Scène</span>
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <article class="service">
-
-            <div class="number">
-                03
-            </div>
-
-            <div class="service-content">
-
-                <div class="playing-card">
-                    ♦
-                </div>
-
-                <h3>
-                    Spectacle privé
-                </h3>
-
-                <p>
-                    Une expérience sur mesure pour votre
-                    événement, votre famille ou vos amis.
-                    Quelques personnes ou un public entier.
-                </p>
-
-                <div class="tags">
-                    <span>Anniversaires</span>
-                    <span>Soirées privées</span>
-                    <span>Célébrations</span>
-                </div>
-
-            </div>
-
-        </article>
-
-    </section>
-
-
-    <!-- QUOTE -->
-
-    <section class="quote">
-
-        <div class="quote-mark">
-            “
-        </div>
-
-        <blockquote>
-            Le meilleur tour de magie est celui
-            dont on parle encore le lendemain.
-        </blockquote>
-
-        <div class="gold-line"></div>
-
         <p>
-            Philippe
+            Magie rapprochée (close-up), mentalisme et spectacles privés sur mesure pour mariages, soirées privées et événements d'entreprise.
         </p>
-
     </section>
-
-
-    <!-- ABOUT -->
-
-    <section class="about">
-
-        <div class="about-photo">
-            <img
-                src="photo.jpg"
-                alt="Philippe en spectacle"
-            >
-        </div>
-
-        <div class="about-text">
-
-            <p class="small-title">
-                QUI EST PHILIPPE ?
-            </p>
-
-            <h2>
-                Créer l'émerveillement.
-            </h2>
-
-            <p>
-                La magie est pour moi bien plus qu'une
-                succession de tours. C'est une façon de
-                créer une émotion, de rapprocher les gens
-                et de transformer un instant ordinaire
-                en souvenir extraordinaire.
-            </p>
-
-            <p>
-                Basé à Montreux, je me déplace dans toute
-                la Suisse et au-delà pour vos événements.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- GALLERY -->
-
-    <section class="gallery-section">
-
-        <p class="small-title">
-            EN IMAGES
-        </p>
-
-        <h2>
-            Quelques instants de magie
-        </h2>
-
-        <div class="gallery">
-
-            <div class="gallery-image">
-                <img src="photo.jpg" alt="Spectacle de magie">
-            </div>
-
-            <div class="gallery-image">
-                <img src="photo.jpg" alt="Magie rapprochée">
-            </div>
-
-            <div class="gallery-image">
-                <img src="photo.jpg" alt="Mentalisme">
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- TESTIMONIAL -->
-
-    <section class="testimonial">
-
-        <div class="stars">
-            ★ ★ ★ ★ ★
-        </div>
-
-        <blockquote>
-            « Nous avons encore essayé de comprendre
-            comment il avait fait… Impossible ! »
-        </blockquote>
-
-        <p>
-            — Invitée à une soirée privée
-        </p>
-
-    </section>
-
 
     <!-- CONTACT -->
+    <section class="contact-box">
+        <p class="eyebrow">Réservations & Inquiries</p>
+        <h3>Réserver une prestation</h3>
 
-    <section class="contact">
-
-        <div class="contact-symbol">
-            ✦
+        <div class="buttons" style="margin-top: 15px;">
+            <a href="tel:+41791234567" class="btn-call">
+                📞 Appeler Philippe
+            </a>
+            <a href="https://wa.me/41791234567" class="btn-whatsapp">
+                💬 WhatsApp
+            </a>
         </div>
 
-        <p class="small-title">
-            VOTRE ÉVÉNEMENT
-        </p>
-
-        <h2>
-            Et si nous faisions<br>
-            disparaître l'impossible ?
-        </h2>
-
-        <p class="contact-intro">
-            Mariage, soirée privée, événement d'entreprise
-            ou simple envie de surprendre vos invités.
-        </p>
-
-        <a
-            href="tel:+41791234567"
-            class="gold-button big"
-        >
-            📞 Appeler Philippe
-        </a>
-
-        <a
-            href="https://wa.me/41791234567"
-            class="whatsapp-button"
-        >
-            💬 Écrire sur WhatsApp
-        </a>
-
-        <p class="location">
-            📍 Montreux · Suisse · Déplacements possibles
-        </p>
-
+        <p class="location">📍 Montreux · Suisse · Déplacements dans toute la région</p>
     </section>
 
-
     <!-- FOOTER -->
-
     <footer>
-
-        <div class="footer-logo">
-            PHILIPPE
-        </div>
-
-        <p>
-            MAGICIEN · MENTALISTE
-        </p>
-
-        <div class="footer-links">
-
-            <a href="#">
-                Instagram
-            </a>
-
-            <a href="#">
-                Facebook
-            </a>
-
-            <a href="mailto:hello@example.com">
-                Email
-            </a>
-
-        </div>
-
-        <div class="copyright">
-            © 2026 Philippe · Tous droits réservés
-        </div>
-
+        <strong>PHILIPPE — MAGICIEN</strong>
+        <p>© 2026 Tous droits réservés</p>
     </footer>
 
 </main>
