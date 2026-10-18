@@ -4,30 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Philippe — Magicien & Mentaliste</title>
-    <meta name="description" content="Philippe, magicien et mentaliste à Montreux. Magie rapprochée, mentalisme et spectacles privés.">
-    
-    <!-- Vintage & Serif Typography matching the poster -->
+    <meta name="description" content="Philippe, magicien et mentaliste à Montreux et Lausanne. Spectacles de magie rapprochée, mentalisme et événements privés.">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400;1,700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* =========================================
-           VINTAGE POSTER PALETTE & STYLES
-        ========================================= */
+        /* ==========================================================================
+           EXACT COLOR PALETTE EXTRACTED FROM ORIGINAL PAINTED ARTWORK
+           - Painted Sky Blue Top: #3B92CE
+           - Painted Sky Blue Light: #4A9ED8
+           - Painted Sky Blue Soft: #5BAADF
+           - Banner Yellow: #FCD232
+           - Banner Shadow/Gold: #E0B420
+           - Poster Crimson Red: #C4252B
+           - Crimson Dark: #9B1A1F
+           - Ground / Sand Tone: #F4EAAC
+           - Parchment Paper Card: #FCF8EB
+           - Ink Black Typography: #121212
+           - Dark Column Slate: #707C86
+           ========================================================================== */
         :root {
-            --sky-blue: #3C9BD6;
-            --poster-yellow: #FFD200;
-            --poster-yellow-dark: #E5B800;
-            --crimson: #A81D24;
-            --sand-bg: #EFE5CD;
-            --paper-card: #FAF6EB;
-            --ink-black: #1A1817;
-            --text-muted: #5C5549;
-            --border-ink: #2C2621;
+            --sky-blue-deep: #3B92CE;
+            --sky-blue-mid: #4A9ED8;
+            --sky-blue-light: #5BAADF;
+            --banner-yellow: #FCD232;
+            --banner-gold-shadow: #E0B420;
+            --poster-crimson: #C4252B;
+            --crimson-dark: #9B1A1F;
+            --sand-ground: #F4EAAC;
+            --parchment-paper: #FCF8EB;
+            --ink-black: #121212;
+            --column-gray: #707C86;
+            --text-muted: #48433C;
+
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        * {
+        /* --- RESET & BASE STYLES --- */
+        *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -38,263 +59,476 @@
         }
 
         body {
-            background-color: var(--sky-blue);
-            background-image: radial-gradient(circle at 50% 0%, #5CB4EC 0%, var(--sky-blue) 70%);
+            /* HAND-PAINTED GOUACHE / WATERCOLOR SKY BACKGROUND MATCHING ORIGINAL IMAGE */
+            background-color: var(--sky-blue-deep);
+            background-image: 
+                /* Subtle brushstroke highlights */
+                radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.18) 0%, transparent 40%),
+                radial-gradient(circle at 85% 30%, rgba(91, 170, 223, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 50% 60%, rgba(59, 146, 206, 0.6) 0%, transparent 60%),
+                /* Soft vertical gouache wash gradient from top sky to horizon sand */
+                linear-gradient(180deg, 
+                    var(--sky-blue-deep) 0%, 
+                    var(--sky-blue-mid) 40%, 
+                    var(--sky-blue-light) 75%, 
+                    var(--sand-ground) 100%
+                );
+            background-attachment: fixed;
             color: var(--ink-black);
-            font-family: 'Montserrat', sans-serif;
-            padding: 20px 10px;
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.6;
             min-height: 100vh;
-        }
-
-        /* =========================================
-           MAIN CARD CONTAINER
-        ========================================= */
-        .card {
+            padding: 24px 12px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
             position: relative;
+        }
+
+        /* --- MAIN CARD CONTAINER --- */
+        .card-container {
             width: 100%;
-            max-width: 580px;
-            margin: 0 auto;
-            background: var(--sand-bg);
-            border: 3px solid var(--border-ink);
+            max-width: 620px;
+            background: var(--parchment-paper);
+            border: 4px solid var(--ink-black);
             border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35), 0 0 0 3px var(--banner-yellow) inset;
             overflow: hidden;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Yellow Ribbon Header */
-        .banner-header {
-            background-color: var(--poster-yellow);
-            border-bottom: 3px solid var(--border-ink);
-            padding: 18px 15px;
+        /* --- 1. TOP YELLOW BANNER RIBBON --- */
+        .ribbon-header {
+            background: var(--banner-yellow);
+            border-bottom: 4px solid var(--ink-black);
+            padding: 20px 16px 16px;
             text-align: center;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
         }
 
-        .banner-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
+        .ribbon-banner-text {
+            font-family: var(--font-sans);
             font-weight: 800;
-            text-transform: uppercase;
+            font-size: clamp(0.72rem, 3.2vw, 0.92rem);
             letter-spacing: 2px;
-            color: var(--ink-black);
-            line-height: 1.1;
+            text-transform: uppercase;
+            color: var(--poster-crimson);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .banner-header p.subtitle {
-            font-size: 11px;
+        .ribbon-banner-text span {
+            color: var(--banner-gold-shadow);
+        }
+
+        .main-artist-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 7vw, 3rem);
+            font-weight: 900;
+            line-height: 1.1;
+            color: var(--ink-black);
+            letter-spacing: -0.5px;
+        }
+
+        .sub-artist-title {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
             font-weight: 700;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--crimson);
-            margin-top: 4px;
+            color: var(--poster-crimson);
+            margin-top: 6px;
         }
 
-        /* =========================================
-           POSTER & DESCRIPTION
-        ========================================= */
+        /* --- 2. PROMINENT POSTER DISPLAY --- */
         .poster-section {
-            padding: 30px 20px 20px;
+            padding: 28px 20px 20px;
             text-align: center;
+            background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 100%);
         }
 
         .poster-frame {
             position: relative;
             width: 100%;
-            max-width: 420px;
-            margin: 0 auto 25px;
-            border: 4px solid var(--border-ink);
-            border-radius: 12px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+            max-width: 440px;
+            margin: 0 auto;
+            border: 4px solid var(--ink-black);
+            border-radius: 14px;
             background: var(--ink-black);
+            box-shadow: 0 16px 35px rgba(18, 18, 18, 0.35), 0 0 0 2px var(--banner-yellow);
             overflow: hidden;
+            transition: transform 0.3s ease;
         }
 
-        .poster-frame img {
+        .poster-frame:hover {
+            transform: translateY(-3px);
+        }
+
+        .poster-image {
             width: 100%;
             height: auto;
             display: block;
+            object-fit: cover;
         }
 
-        .description {
-            padding: 0 10px 25px;
+        /* --- 3. TITLE, TAGLINE & NARRATIVE DESCRIPTION --- */
+        .narrative-section {
+            padding: 24px 24px 28px;
             text-align: center;
+            border-bottom: 3px solid var(--ink-black);
         }
 
-        .description h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 5vw, 2.2rem);
+            font-weight: 800;
+            color: var(--ink-black);
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .tagline {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
             font-style: italic;
             font-weight: 700;
-            color: var(--crimson);
-            line-height: 1.25;
-            margin-bottom: 12px;
+            color: var(--poster-crimson);
+            margin-bottom: 16px;
         }
 
-        .description p {
+        .narrative-text {
             color: var(--text-muted);
-            font-size: 14px;
-            line-height: 1.8;
-            max-width: 460px;
-            margin: 0 auto 15px;
+            font-size: 0.98rem;
+            line-height: 1.75;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
-        /* =========================================
-           CONTACT & BUTTONS
-        ========================================= */
-        .contact-box {
-            background: var(--paper-card);
-            border-top: 3px solid var(--border-ink);
-            padding: 30px 20px;
+        /* --- 4. SERVICES SECTION WITH CARD SUITS --- */
+        .services-section {
+            padding: 28px 24px;
+            background: rgba(244, 234, 172, 0.35);
+            border-bottom: 3px solid var(--ink-black);
+        }
+
+        .section-header {
             text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .section-eyebrow {
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: 0.75rem;
+            letter-spacing: 2.5px;
+            color: var(--poster-crimson);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--ink-black);
+        }
+
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .service-card {
+            background: var(--parchment-paper);
+            border: 2px solid var(--ink-black);
+            border-radius: 12px;
+            padding: 16px 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .service-card:hover {
+            transform: translateX(3px);
+        }
+
+        .card-suit {
+            font-size: 1.75rem;
+            line-height: 1;
+            padding: 10px 14px;
+            background: var(--sand-ground);
+            border: 2px solid var(--ink-black);
+            border-radius: 10px;
+            color: var(--ink-black);
+            flex-shrink: 0;
+        }
+
+        .card-suit.red {
+            color: var(--poster-crimson);
+        }
+
+        .service-info h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--ink-black);
+            margin-bottom: 4px;
+        }
+
+        .service-info p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        /* --- 5. ACTIONABLE CONTACT SECTION --- */
+        .contact-section {
+            padding: 30px 24px;
+            text-align: center;
+            background: var(--parchment-paper);
+        }
+
+        .contact-box {
+            background: var(--banner-yellow);
+            border: 3px solid var(--ink-black);
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 6px 0 var(--ink-black);
         }
 
         .contact-box h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            font-weight: 800;
             color: var(--ink-black);
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
-        .contact-box p.eyebrow {
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            color: var(--crimson);
-            text-transform: uppercase;
+        .contact-box p {
+            font-size: 0.9rem;
+            color: var(--ink-black);
             margin-bottom: 20px;
+            font-weight: 500;
         }
 
-        .buttons {
+        .btn-group {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            max-width: 360px;
+            max-width: 420px;
             margin: 0 auto;
         }
 
         @media (min-width: 480px) {
-            .buttons {
+            .btn-group {
                 flex-direction: row;
             }
         }
 
-        .btn-call, .btn-whatsapp {
+        .btn-action {
+            flex: 1;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 15px 20px;
-            border-radius: 8px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
+            gap: 10px;
+            padding: 14px 20px;
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: 0.88rem;
+            letter-spacing: 1px;
             text-transform: uppercase;
             text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 2px solid var(--border-ink);
+            border: 3px solid var(--ink-black);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 0 var(--ink-black);
         }
 
-        .btn-call {
-            background-color: var(--poster-yellow);
-            color: var(--ink-black);
-            flex: 1;
-        }
-
-        .btn-call:hover {
-            background-color: var(--poster-yellow-dark);
+        .btn-action:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 0 var(--ink-black);
         }
 
-        .btn-whatsapp {
-            background-color: #25D366;
-            color: #ffffff;
-            border-color: #1a8f44;
-            flex: 1;
+        .btn-action:active {
+            transform: translateY(2px);
+            box-shadow: 0 1px 0 var(--ink-black);
         }
 
-        .btn-whatsapp:hover {
-            background-color: #20ba5a;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        .btn-crimson {
+            background: var(--poster-crimson);
+            color: #FFFFFF;
         }
 
-        .location {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--text-muted);
-            margin-top: 20px;
-            letter-spacing: 1px;
+        .btn-crimson:hover {
+            background: var(--crimson-dark);
         }
 
-        footer {
+        .btn-dark {
             background: var(--ink-black);
-            color: var(--sand-bg);
-            text-align: center;
-            padding: 20px;
-            font-size: 11px;
-            letter-spacing: 1px;
+            color: var(--banner-yellow);
         }
 
-        footer strong {
-            color: var(--poster-yellow);
-            font-family: 'Playfair Display', serif;
-            font-size: 15px;
-            display: block;
-            margin-bottom: 4px;
+        .location-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            font-family: var(--font-sans);
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--ink-black);
+            background: var(--parchment-paper);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 2px solid var(--ink-black);
+        }
+
+        .location-tag i {
+            color: var(--poster-crimson);
+        }
+
+        /* --- 6. CLEAN FOOTER --- */
+        .footer {
+            background: var(--ink-black);
+            color: var(--parchment-paper);
+            padding: 22px;
+            text-align: center;
+            border-top: 4px solid var(--ink-black);
+        }
+
+        .footer-brand {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--banner-yellow);
+            margin-bottom: 2px;
+        }
+
+        .footer-sub {
+            font-family: var(--font-sans);
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            color: var(--column-gray);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: #a0a0a0;
         }
     </style>
 </head>
 <body>
 
-<main class="card">
+    <!-- MAIN DIGITAL BUSINESS CARD CONTAINER -->
+    <main class="card-container">
 
-    <!-- HEADER BANNER -->
-    <header class="banner-header">
-        <h1>Philippe</h1>
-        <p class="subtitle">Magicien & Mentaliste</p>
-    </header>
+        <!-- 1. TOP YELLOW BANNER RIBBON -->
+        <header class="ribbon-header">
+            <div class="ribbon-banner-text">
+                <span>✦</span> Comment Je Suis Devenu Magicien <span>✦</span>
+            </div>
+            <h1 class="main-artist-title">Philippe</h1>
+            <div class="sub-artist-title">Magicien & Mentaliste</div>
+        </header>
 
-    <!-- POSTER DISPLAY -->
-    <section class="poster-section">
-        <div class="poster-frame">
-            <img src="poster.jpg" alt="Comment je suis devenu Magicien - Spectacle du Théâtre Magique par Philippe">
-        </div>
-    </section>
+        <!-- 2. PROMINENT DISPLAY OF POSTER IMAGE -->
+        <section class="poster-section">
+            <div class="poster-frame">
+                <img 
+                    src="poster.jpg" 
+                    alt="Comment Je Suis Devenu Magicien — Philippe Le Grand Magicien" 
+                    class="poster-image"
+                    onerror="this.onerror=null; this.src='https://placehold.co/600x800/308ac9/FFFFFF?text=Philippe+Magicien+Poster';">
+            </div>
+        </section>
 
-    <!-- DESCRIPTION -->
-    <section class="description">
-        <h2>L'impossible, à quelques centimètres de vous</h2>
-        <p>
-            Une magie élégante, intime et surprenante pour émerveiller vos invités et créer de véritables moments d'émerveillement lors de vos événements.
-        </p>
-        <p>
-            Magie rapprochée (close-up), mentalisme et spectacles privés sur mesure pour mariages, soirées privées et événements d'entreprise.
-        </p>
-    </section>
+        <!-- 3. TITLE, TAGLINE & NARRATIVE DESCRIPTION -->
+        <section class="narrative-section">
+            <h2 class="hero-title">Philippe — Magicien & Mentaliste</h2>
+            <p class="tagline">« L'impossible, à quelques centimètres de vous »</p>
+            <p class="narrative-text">
+                Plongez au cœur d'un univers où l'illusion rejoint l'élégance du spectacle. Spécialisé en magie rapprochée (close-up) et en mentalisme, Philippe propose des prestations immersives conçues pour créer des souvenirs impérissables lors de vos événements privés et d'entreprise.
+            </p>
+        </section>
 
-    <!-- CONTACT -->
-    <section class="contact-box">
-        <p class="eyebrow">Réservations & Inquiries</p>
-        <h3>Réserver une prestation</h3>
+        <!-- 4. SERVICES SECTION FORMATTED WITH CARD SUITS -->
+        <section class="services-section">
+            <div class="section-header">
+                <span class="section-eyebrow">Les Prestations</span>
+                <h2 class="section-title">Formules & Spectacles</h2>
+            </div>
 
-        <div class="buttons" style="margin-top: 15px;">
-            <a href="tel:+41791234567" class="btn-call">
-                📞 Appeler Philippe
-            </a>
-            <a href="https://wa.me/41791234567" class="btn-whatsapp">
-                💬 WhatsApp
-            </a>
-        </div>
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="card-suit">♠</div>
+                    <div class="service-info">
+                        <h3>Magie Rapprochée (Close-Up)</h3>
+                        <p>Des expériences visuelles et interactives réalisées directement sous les yeux de vos invités lors de cocktails ou repas.</p>
+                    </div>
+                </article>
 
-        <p class="location">📍 Montreux · Suisse · Déplacements dans toute la région</p>
-    </section>
+                <article class="service-card">
+                    <div class="card-suit red">♥</div>
+                    <div class="service-info">
+                        <h3>Mentalisme & Intuition</h3>
+                        <p>Lecture de pensée, prédictions et coïncidences impossibles pour intriguer et captiver l'ensemble du public.</p>
+                    </div>
+                </article>
 
-    <!-- FOOTER -->
-    <footer>
-        <strong>PHILIPPE — MAGICIEN</strong>
-        <p>© 2026 Tous droits réservés</p>
-    </footer>
+                <article class="service-card">
+                    <div class="card-suit red">♦</div>
+                    <div class="service-info">
+                        <h3>Spectacles Privés & Événements</h3>
+                        <p>Prestations sur mesure pour mariages, anniversaires, fêtes de famille et soirées d'entreprise d'exception.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-</main>
+        <!-- 5. ACTIONABLE CONTACT SECTION -->
+        <section class="contact-section">
+            <div class="contact-box">
+                <h3>Réservations & Informations</h3>
+                <p>Planifiez une prestation magique sur mesure pour votre événement.</p>
+
+                <div class="btn-group">
+                    <a href="tel:+41791234567" class="btn-action btn-crimson">
+                        <i class="fa-solid fa-phone"></i> Appeler
+                    </a>
+                    <a href="https://wa.me/41791234567" target="_blank" rel="noopener" class="btn-action btn-dark">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+
+                <div class="location-tag">
+                    <i class="fa-solid fa-location-dot"></i> Montreux / Lausanne, Suisse
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. CLEAN FOOTER -->
+        <footer class="footer">
+            <div class="footer-brand">PHILIPPE</div>
+            <div class="footer-sub">Magicien & Mentaliste</div>
+            <p class="copyright">
+                © 2026 Philippe — Tous droits réservés.
+            </p>
+        </footer>
+
+    </main>
 
 </body>
 </html>
