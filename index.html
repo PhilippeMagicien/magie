@@ -1,534 +1,635 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Philippe — Magicien  </title>
-    <meta name="description" content="Philippe, magicien à Montreux, Vevey, Lausanne. magie rapprochée, anniversire enfants, événements privés.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#42a5e8">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,600;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Philippe le Magicien | Spectacles pour enfants</title>
+  <meta name="description" content="Philippe, magicien pour enfants à Montreux, Vevey et Lausanne. Découvrez une magie amusante et interactive pour les anniversaires et les fêtes de famille.">
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-    <style>
-        /* ==========================================================================
-           EXACT COLOR PALETTE EXTRACTED FROM ORIGINAL PAINTED ARTWORK
-           - Painted Sky Blue Top: #3B92CE
-           - Painted Sky Blue Light: #4A9ED8
-           - Painted Sky Blue Soft: #5BAADF
-           - Banner Yellow: #FCD232
-           - Banner Shadow/Gold: #E0B420
-           - Poster Crimson Red: #C4252B
-           - Crimson Dark: #9B1A1F
-           - Ground / Sand Tone: #F4EAAC
-           - Parchment Paper Card: #FCF8EB
-           - Ink Black Typography: #121212
-           - Dark Column Slate: #707C86
-           ========================================================================== */
-        :root {
-            --sky-blue-deep: #3B92CE;
-            --sky-blue-mid: #4A9ED8;
-            --sky-blue-light: #5BAADF;
-            --banner-yellow: #FCD232;
-            --banner-gold-shadow: #E0B420;
-            --poster-crimson: #C4252B;
-            --crimson-dark: #9B1A1F;
-            --sand-ground: #F4EAAC;
-            --parchment-paper: #FCF8EB;
-            --ink-black: #121212;
-            --column-gray: #707C86;
-            --text-muted: #48433C;
+  <style>
+    :root {
+      --blue: #42a5e8;
+      --blue-dark: #1876bd;
+      --yellow: #ffdc45;
+      --red: #e94348;
+      --cream: #fffaf0;
+      --ink: #24324b;
+      --green: #53c99b;
+      --purple: #9271df;
+      --shadow: 0 8px 0 rgba(36, 50, 75, .12);
+    }
 
-            --font-display: 'Playfair Display', Georgia, serif;
-            --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* --- RESET & BASE STYLES --- */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    body {
+      font-family: "Nunito", sans-serif;
+      color: var(--ink);
+      background: #dff3ff;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
 
-        body {
-            /* HAND-PAINTED GOUACHE / WATERCOLOR SKY BACKGROUND MATCHING ORIGINAL IMAGE */
-            background-color: var(--sky-blue-deep);
-            background-image: 
-                /* Subtle brushstroke highlights */
-                radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.18) 0%, transparent 40%),
-                radial-gradient(circle at 85% 30%, rgba(91, 170, 223, 0.4) 0%, transparent 50%),
-                radial-gradient(circle at 50% 60%, rgba(59, 146, 206, 0.6) 0%, transparent 60%),
-                /* Soft vertical gouache wash gradient from top sky to horizon sand */
-                linear-gradient(180deg, 
-                    var(--sky-blue-deep) 0%, 
-                    var(--sky-blue-mid) 40%, 
-                    var(--sky-blue-light) 75%, 
-                    var(--sand-ground) 100%
-                );
-            background-attachment: fixed;
-            color: var(--ink-black);
-            font-family: var(--font-sans);
-            font-size: 16px;
-            line-height: 1.6;
-            min-height: 100vh;
-            padding: 24px 12px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            position: relative;
-        }
+    a {
+      color: inherit;
+    }
 
-        /* --- MAIN CARD CONTAINER --- */
-        .card-container {
-            width: 100%;
-            max-width: 620px;
-            background: var(--parchment-paper);
-            border: 4px solid var(--ink-black);
-            border-radius: 20px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35), 0 0 0 3px var(--banner-yellow) inset;
-            overflow: hidden;
-            position: relative;
-            z-index: 1;
-        }
+    .page {
+      width: min(100% - 24px, 900px);
+      margin: 22px auto;
+      background: var(--cream);
+      border: 4px solid var(--ink);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(28, 83, 125, .2);
+    }
 
-        /* --- 1. TOP YELLOW BANNER RIBBON --- */
-        .ribbon-header {
-            background: var(--banner-yellow);
-            border-bottom: 4px solid var(--ink-black);
-            padding: 20px 16px 16px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-        }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 38px 22px 45px;
+      background: linear-gradient(155deg, #65c4fa, var(--blue) 65%, #82d6f7);
+      border-bottom: 4px solid var(--ink);
+    }
 
-        .ribbon-banner-text {
-            font-family: var(--font-sans);
-            font-weight: 800;
-            font-size: clamp(0.72rem, 3.2vw, 0.92rem);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--poster-crimson);
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
+    .hero::before,
+    .hero::after {
+      content: "✦";
+      position: absolute;
+      color: var(--yellow);
+      font-size: 54px;
+      animation: twinkle 3s ease-in-out infinite;
+    }
 
-        .ribbon-banner-text span {
-            color: var(--banner-gold-shadow);
-        }
+    .hero::before {
+      left: 7%;
+      top: 24%;
+    }
 
-        .main-artist-title {
-            font-family: var(--font-display);
-            font-size: clamp(2.2rem, 7vw, 3rem);
-            font-weight: 900;
-            line-height: 1.1;
-            color: var(--ink-black);
-            letter-spacing: -0.5px;
-        }
+    .hero::after {
+      right: 7%;
+      top: 15%;
+      animation-delay: 1s;
+    }
 
-        .sub-artist-title {
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--poster-crimson);
-            margin-top: 6px;
-        }
+    .eyebrow {
+      display: inline-block;
+      background: var(--yellow);
+      border: 2px solid var(--ink);
+      border-radius: 30px;
+      padding: 6px 15px;
+      font-size: .78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transform: rotate(-2deg);
+      margin-bottom: 14px;
+    }
 
-        /* --- 2. PROMINENT POSTER DISPLAY --- */
-        .poster-section {
-            padding: 28px 20px 20px;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 100%);
-        }
+    h1, h2, h3 {
+      font-family: "Fredoka", sans-serif;
+      line-height: 1.2;
+    }
 
-        .poster-frame {
-            position: relative;
-            width: 100%;
-            max-width: 440px;
-            margin: 0 auto;
-            border: 4px solid var(--ink-black);
-            border-radius: 14px;
-            background: var(--ink-black);
-            box-shadow: 0 16px 35px rgba(18, 18, 18, 0.35), 0 0 0 2px var(--banner-yellow);
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
+    h1 {
+      font-size: clamp(3rem, 10vw, 5.7rem);
+      font-weight: 700;
+      letter-spacing: -2px;
+      color: white;
+      text-shadow: 4px 5px 0 var(--blue-dark), 6px 7px 0 var(--ink);
+      margin-bottom: 12px;
+    }
 
-        .poster-frame:hover {
-            transform: translateY(-3px);
-        }
+    .hero-subtitle {
+      max-width: 540px;
+      margin: 0 auto 25px;
+      font-size: clamp(1.05rem, 3vw, 1.3rem);
+      font-weight: 800;
+    }
 
-        .poster-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
+    .hero-subtitle strong {
+      color: #fff5a8;
+    }
 
-        /* --- 3. TITLE, TAGLINE & NARRATIVE DESCRIPTION --- */
-        .narrative-section {
-            padding: 24px 24px 28px;
-            text-align: center;
-            border-bottom: 3px solid var(--ink-black);
-        }
+    .hero-icons {
+      font-size: clamp(2rem, 7vw, 3.5rem);
+      letter-spacing: 9px;
+      margin: 10px 0 22px;
+      filter: drop-shadow(2px 3px 0 rgba(36,50,75,.12));
+    }
 
-        .hero-title {
-            font-family: var(--font-display);
-            font-size: clamp(1.6rem, 5vw, 2.2rem);
-            font-weight: 800;
-            color: var(--ink-black);
-            margin-bottom: 6px;
-            line-height: 1.2;
-        }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 22px;
+      border: 3px solid var(--ink);
+      border-radius: 15px;
+      text-decoration: none;
+      font-weight: 900;
+      box-shadow: 0 5px 0 var(--ink);
+      transition: transform .2s, box-shadow .2s;
+    }
 
-        .tagline {
-            font-family: var(--font-display);
-            font-size: 1.15rem;
-            font-style: italic;
-            font-weight: 700;
-            color: var(--poster-crimson);
-            margin-bottom: 16px;
-        }
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 0 var(--ink);
+    }
 
-        .narrative-text {
-            color: var(--text-muted);
-            font-size: 0.98rem;
-            line-height: 1.75;
-            max-width: 500px;
-            margin: 0 auto;
-        }
+    .button:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 var(--ink);
+    }
 
-        /* --- 4. SERVICES SECTION WITH CARD SUITS --- */
-        .services-section {
-            padding: 28px 24px;
-            background: rgba(244, 234, 172, 0.35);
-            border-bottom: 3px solid var(--ink-black);
-        }
+    .button-yellow {
+      background: var(--yellow);
+      color: var(--ink);
+    }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 22px;
-        }
+    .button-red {
+      background: var(--red);
+      color: white;
+    }
 
-        .section-eyebrow {
-            font-family: var(--font-sans);
-            font-weight: 800;
-            font-size: 0.75rem;
-            letter-spacing: 2.5px;
-            color: var(--poster-crimson);
-            text-transform: uppercase;
-            margin-bottom: 4px;
-            display: block;
-        }
+    .button-dark {
+      background: var(--ink);
+      color: white;
+    }
 
-        .section-title {
-            font-family: var(--font-display);
-            font-size: 1.75rem;
-            font-weight: 800;
-            color: var(--ink-black);
-        }
+    .section {
+      padding: 42px 26px;
+    }
 
-        .services-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-        }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 25px;
+    }
 
-        .service-card {
-            background: var(--parchment-paper);
-            border: 2px solid var(--ink-black);
-            border-radius: 12px;
-            padding: 16px 18px;
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease;
-        }
+    .section-label {
+      color: var(--red);
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: .78rem;
+      letter-spacing: 2px;
+    }
 
-        .service-card:hover {
-            transform: translateX(3px);
-        }
+    .section-heading h2 {
+      font-size: clamp(1.9rem, 5vw, 2.7rem);
+      margin-top: 5px;
+    }
 
-        .card-suit {
-            font-size: 1.75rem;
-            line-height: 1;
-            padding: 10px 14px;
-            background: var(--sand-ground);
-            border: 2px solid var(--ink-black);
-            border-radius: 10px;
-            color: var(--ink-black);
-            flex-shrink: 0;
-        }
+    .intro {
+      text-align: center;
+      background: var(--cream);
+    }
 
-        .card-suit.red {
-            color: var(--poster-crimson);
-        }
+    .poster-frame {
+      max-width: 410px;
+      margin: 0 auto 28px;
+      padding: 9px;
+      background: white;
+      border: 3px solid var(--ink);
+      border-radius: 22px;
+      box-shadow: 7px 8px 0 var(--yellow);
+      transform: rotate(-1deg);
+    }
 
-        .service-info h3 {
-            font-family: var(--font-display);
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--ink-black);
-            margin-bottom: 4px;
-        }
+    .poster-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 13px;
+    }
 
-        .service-info p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            line-height: 1.55;
-        }
+    .intro h2 {
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      margin-bottom: 12px;
+    }
 
-        /* --- 5. ACTIONABLE CONTACT SECTION --- */
-        .contact-section {
-            padding: 30px 24px;
-            text-align: center;
-            background: var(--parchment-paper);
-        }
+    .intro h2 span {
+      color: var(--red);
+    }
 
-        .contact-box {
-            background: var(--banner-yellow);
-            border: 3px solid var(--ink-black);
-            border-radius: 16px;
-            padding: 24px 20px;
-            box-shadow: 0 6px 0 var(--ink-black);
-        }
+    .intro p {
+      max-width: 650px;
+      margin: 0 auto 20px;
+      color: #4c5a6c;
+      font-size: 1.05rem;
+    }
 
-        .contact-box h3 {
-            font-family: var(--font-display);
-            font-size: 1.55rem;
-            font-weight: 800;
-            color: var(--ink-black);
-            margin-bottom: 4px;
-        }
+    .highlight {
+      color: var(--blue-dark);
+      font-weight: 900;
+    }
 
-        .contact-box p {
-            font-size: 0.9rem;
-            color: var(--ink-black);
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
+    .services {
+      background: #fff0b7;
+      border-top: 3px dashed #e6be32;
+      border-bottom: 3px dashed #e6be32;
+    }
 
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 420px;
-            margin: 0 auto;
-        }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 17px;
+    }
 
-        @media (min-width: 480px) {
-            .btn-group {
-                flex-direction: row;
-            }
-        }
+    .service-card {
+      background: white;
+      padding: 22px 18px;
+      border: 3px solid var(--ink);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      transition: transform .2s;
+    }
 
-        .btn-action {
-            flex: 1;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 20px;
-            font-family: var(--font-sans);
-            font-weight: 800;
-            font-size: 0.88rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            text-decoration: none;
-            border: 3px solid var(--ink-black);
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 0 var(--ink-black);
-        }
+    .service-card:hover {
+      transform: translateY(-4px) rotate(-.5deg);
+    }
 
-        .btn-action:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 0 var(--ink-black);
-        }
+    .service-card:nth-child(2) {
+      background: #e8f6ff;
+    }
 
-        .btn-action:active {
-            transform: translateY(2px);
-            box-shadow: 0 1px 0 var(--ink-black);
-        }
+    .service-card:nth-child(3) {
+      background: #ffeded;
+    }
 
-        .btn-crimson {
-            background: var(--poster-crimson);
-            color: #FFFFFF;
-        }
+    .service-card:nth-child(4) {
+      background: #eee8ff;
+    }
 
-        .btn-crimson:hover {
-            background: var(--crimson-dark);
-        }
+    .service-icon {
+      display: grid;
+      place-items: center;
+      width: 64px;
+      height: 64px;
+      margin-bottom: 13px;
+      border: 2px solid var(--ink);
+      border-radius: 18px;
+      background: var(--yellow);
+      font-size: 2rem;
+    }
 
-        .btn-dark {
-            background: var(--ink-black);
-            color: var(--banner-yellow);
-        }
+    .service-card:nth-child(2) .service-icon {
+      background: #a9e5ff;
+    }
 
-        .location-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 20px;
-            font-family: var(--font-sans);
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: var(--ink-black);
-            background: var(--parchment-paper);
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 2px solid var(--ink-black);
-        }
+    .service-card:nth-child(3) .service-icon {
+      background: #ffb9bc;
+    }
 
-        .location-tag i {
-            color: var(--poster-crimson);
-        }
+    .service-card:nth-child(4) .service-icon {
+      background: #d5c6ff;
+    }
 
-        /* --- 6. CLEAN FOOTER --- */
-        .footer {
-            background: var(--ink-black);
-            color: var(--parchment-paper);
-            padding: 22px;
-            text-align: center;
-            border-top: 4px solid var(--ink-black);
-        }
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
 
-        .footer-brand {
-            font-family: var(--font-display);
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: var(--banner-yellow);
-            margin-bottom: 2px;
-        }
+    .service-card p {
+      font-size: .94rem;
+      color: #4c5a6c;
+    }
 
-        .footer-sub {
-            font-family: var(--font-sans);
-            font-size: 0.72rem;
-            letter-spacing: 2px;
-            color: var(--column-gray);
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
+    .promise {
+      text-align: center;
+      background: white;
+    }
 
-        .copyright {
-            font-size: 0.75rem;
-            color: #a0a0a0;
-        }
-    </style>
+    .promise-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .promise-item {
+      padding: 10px 15px;
+      border: 2px solid var(--ink);
+      border-radius: 30px;
+      background: #e8f6ff;
+      font-weight: 800;
+    }
+
+    .contact {
+      position: relative;
+      text-align: center;
+      background: var(--blue);
+      padding: 42px 22px;
+      border-top: 4px solid var(--ink);
+    }
+
+    .contact-box {
+      max-width: 650px;
+      margin: auto;
+      padding: 28px 20px;
+      border: 3px solid var(--ink);
+      border-radius: 24px;
+      background: var(--yellow);
+      box-shadow: 7px 8px 0 var(--ink);
+    }
+
+    .contact-box h2 {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      margin-bottom: 10px;
+    }
+
+    .contact-box p {
+      margin-bottom: 22px;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 13px;
+    }
+
+    .location {
+      display: inline-block;
+      margin-top: 23px;
+      padding: 8px 15px;
+      background: white;
+      border: 2px solid var(--ink);
+      border-radius: 25px;
+      font-weight: 900;
+    }
+
+    footer {
+      padding: 25px 18px;
+      text-align: center;
+      background: var(--ink);
+      color: white;
+    }
+
+    .footer-name {
+      font-family: "Fredoka", sans-serif;
+      color: var(--yellow);
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+
+    .footer-caption {
+      font-weight: 800;
+      color: #c6e9ff;
+    }
+
+    .copyright {
+      margin-top: 12px;
+      color: #cbd1db;
+      font-size: .8rem;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { transform: scale(1) rotate(0); }
+      50% { transform: scale(1.18) rotate(15deg); }
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        width: calc(100% - 14px);
+        margin: 7px auto;
+        border-width: 3px;
+        border-radius: 21px;
+      }
+
+      .hero {
+        padding: 32px 16px 36px;
+      }
+
+      .hero::before {
+        left: 4%;
+        font-size: 35px;
+      }
+
+      .hero::after {
+        right: 4%;
+        font-size: 35px;
+      }
+
+      .section {
+        padding: 32px 17px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+
+      .service-icon {
+        flex-shrink: 0;
+        width: 54px;
+        height: 54px;
+        font-size: 1.7rem;
+        margin-bottom: 0;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <main class="page">
 
-    <!-- MAIN DIGITAL BUSINESS CARD CONTAINER -->
-    <main class="card-container">
+    <header class="hero">
+      <div class="eyebrow">✨ Un spectacle plein de surprises ✨</div>
 
-        <!-- 1. TOP YELLOW BANNER RIBBON -->
-        <header class="ribbon-header">
-            <div class="ribbon-banner-text">
-                <span>✦</span> Comment Je Suis Devenu Magicien <span>✦</span>
-            </div>
-            <h1 class="main-artist-title">Philippe</h1>
-            <div class="sub-artist-title">Magicien </div>
-        </header>
+      <h1>Philippe !</h1>
 
-        <!-- 2. PROMINENT DISPLAY OF POSTER IMAGE -->
-        <section class="poster-section">
-            <div class="poster-frame">
-                <img 
-                    src="poster.jpg" 
-                    alt="Comment Je Suis Devenu Magicien — Philippe Le Magicien" 
-                    class="poster-image"
-                    onerror="this.onerror=null; this.src='https://placehold.co/600x800/308ac9/FFFFFF?text=Philippe+Magicien+Poster';">
-            </div>
-        </section>
+      <p class="hero-subtitle">
+        Le magicien qui fait briller les yeux
+        <strong>des petits et des grands !</strong>
+      </p>
 
-        <!-- 3. TITLE, TAGLINE & NARRATIVE DESCRIPTION -->
-        <section class="narrative-section">
-            <h2 class="hero-title">Philippe — Magicien </h2>
-            <p class="tagline">« L'impossible, à quelques centimètres de vous »</p>
-            <p class="narrative-text">
-                Plongez au cœur d'un univers où l'illusion rejoint l'élégance du spectacle. Spécialisé en magie rapprochée (close-up) et en mentalisme, Philippe propose des prestations immersives conçues pour créer des souvenirs impérissables lors de vos événements privés et d'entreprise.
+      <div class="hero-icons" aria-hidden="true">🎩 🪄 🐇</div>
+
+      <a class="button button-yellow" href="#contact">
+        🎉 Organiser un anniversaire
+      </a>
+    </header>
+
+    <section class="section intro">
+      <div class="poster-frame">
+        <img
+          src="poster.jpg"
+          alt="Affiche du spectacle de Philippe le magicien"
+          onerror="this.style.display='none';"
+        >
+      </div>
+
+      <h2>Prêts pour un voyage <span>magique ?</span></h2>
+
+      <p>
+        Des objets qui disparaissent, des surprises incroyables
+        et des éclats de rire ! Avec Philippe, les enfants deviennent
+        les héros d'un spectacle interactif où leur imagination
+        prend vie.
+      </p>
+
+      <p>
+        Pour un anniversaire, une fête de famille ou une occasion
+        spéciale, partagez un moment rempli de
+        <span class="highlight">rêves, de rires et de magie !</span>
+      </p>
+
+      <a class="button button-red" href="#prestations">
+        Découvrir les spectacles ↓
+      </a>
+    </section>
+
+    <section class="section services" id="prestations">
+      <div class="section-heading">
+        <span class="section-label">Abracadabra !</span>
+        <h2>Des moments magiques</h2>
+      </div>
+
+      <div class="service-grid">
+
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🎂</div>
+          <div>
+            <h3>Anniversaires</h3>
+            <p>
+              Une fête extraordinaire avec des tours étonnants,
+              de la participation et de nombreux souvenirs à partager.
             </p>
-        </section>
+          </div>
+        </article>
 
-        <!-- 4. SERVICES SECTION FORMATTED WITH CARD SUITS -->
-        <section class="services-section">
-            <div class="section-header">
-                <span class="section-eyebrow">Les Prestations</span>
-                <h2 class="section-title">Formules & Spectacles</h2>
-            </div>
-
-            <div class="services-grid">
-                <article class="service-card">
-                    <div class="card-suit">♠</div>
-                    <div class="service-info">
-                        <h3>Magie Rapprochée (Close-Up)</h3>
-                        <p>Des expériences visuelles et interactives réalisées directement sous les yeux de vos invités lors de cocktails ou repas.</p>
-                    </div>
-                </article>
-
-                <article class="service-card">
-                    <div class="card-suit red">♥</div>
-                    <div class="service-info">
-                        <h3>Mentalisme & Intuition</h3>
-                        <p>Lecture de pensée, prédictions et coïncidences impossibles pour intriguer et captiver l'ensemble du public.</p>
-                    </div>
-                </article>
-
-                <article class="service-card">
-                    <div class="card-suit red">♦</div>
-                    <div class="service-info">
-                        <h3>Spectacles Privés & Événements</h3>
-                        <p>Prestations sur mesure pour mariages, anniversaires, fêtes de famille et soirées d'entreprise d'exception.</p>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- 5. ACTIONABLE CONTACT SECTION -->
-        <section class="contact-section">
-            <div class="contact-box">
-                <h3>Réservations & Informations</h3>
-                <p>Planifiez une prestation magique sur mesure pour votre événement.</p>
-
-                <div class="btn-group">
-                    <a href="tel:+41791234567" class="btn-action btn-crimson">
-                        <i class="fa-solid fa-phone"></i> Appeler
-                    </a>
-                    <a href="https://wa.me/41791234567" target="_blank" rel="noopener" class="btn-action btn-dark">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
-                    </a>
-                </div>
-
-                <div class="location-tag">
-                    <i class="fa-solid fa-location-dot"></i> Montreux / Lausanne, Suisse
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. CLEAN FOOTER -->
-        <footer class="footer">
-            <div class="footer-brand">PHILIPPE</div>
-            <div class="footer-sub">Magicien & Mentaliste</div>
-            <p class="copyright">
-                © 2026 Philippe — Tous droits réservés.
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🪄</div>
+          <div>
+            <h3>Magie interactive</h3>
+            <p>
+              Les enfants participent aux tours et deviennent
+              les assistants du magicien !
             </p>
-        </footer>
+          </div>
+        </article>
 
-    </main>
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🎈</div>
+          <div>
+            <h3>Fêtes de famille</h3>
+            <p>
+              Une animation conviviale pour partager un moment
+              amusant entre enfants et adultes.
+            </p>
+          </div>
+        </article>
 
+        <article class="service-card">
+          <div class="service-icon" aria-hidden="true">🏫</div>
+          <div>
+            <h3>Écoles et événements</h3>
+            <p>
+              Une animation magique à organiser pour les fêtes,
+              les rencontres et les événements adaptés aux enfants.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section promise">
+      <div class="section-heading">
+        <span class="section-label">La recette magique</span>
+        <h2>Des sourires à volonté !</h2>
+      </div>
+
+      <p>
+        Un spectacle vivant où la curiosité, l'imagination
+        et la bonne humeur sont au rendez-vous.
+      </p>
+
+      <div class="promise-list">
+        <span class="promise-item">✨ Des surprises</span>
+        <span class="promise-item">😄 Des éclats de rire</span>
+        <span class="promise-item">🙌 De la participation</span>
+        <span class="promise-item">💛 Des souvenirs</span>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-box">
+        <h2>On fait apparaître la magie ? 🎩</h2>
+
+        <p>
+          Vous préparez un anniversaire ou une fête ?
+          Contactez Philippe pour discuter de votre événement.
+        </p>
+
+        <div class="button-group">
+          <!-- Remplacez le numéro ci-dessous par votre vrai numéro -->
+          <a class="button button-red" href="tel:+41791234567">
+            📞 Appeler Philippe
+          </a>
+
+          <!-- Remplacez le numéro dans le lien WhatsApp également -->
+          <a
+            class="button button-dark"
+            href="https://wa.me/41791234567"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            💬 Écrire sur WhatsApp
+          </a>
+        </div>
+
+        <div class="location">
+          📍 Montreux · Vevey · Lausanne
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-name">Philippe le Magicien</div>
+      <p class="footer-caption">Des étoiles plein les yeux !</p>
+      <p class="copyright">
+        © 2026 Philippe — Tous droits réservés.
+      </p>
+    </footer>
+
+  </main>
 </body>
 </html>
